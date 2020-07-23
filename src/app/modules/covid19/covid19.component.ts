@@ -12,6 +12,7 @@ export class Covid19Component implements OnInit {
   totalConfirmed = 0;
   totalDeaths = 0;
   totalRecovered = 0;
+  showedDataType = 'Confirmed';
 
   loading = true;
   globalData: GlobalDataSummary[];
@@ -20,15 +21,18 @@ export class Covid19Component implements OnInit {
     PieChart : 'PieChart',
     ColumnChart : 'ColumnChart',
     LineChart : 'LineChart',
-    height : 500,
+    height : 300,
     options : {
       animation : {
         duration : 1000,
         easing : 'out'
       },
-      is3D : true
+      is3D : false
     }
   };
+
+  width = document.documentElement.clientWidth;
+  height = document.documentElement.clientHeight;
 
   constructor(private dataSrv: Covid19DataService) { }
 
@@ -46,13 +50,28 @@ export class Covid19Component implements OnInit {
                 this.totalRecovered += cs.recovered;
               }
             });
-             this.initChart('c');
+            this.initChart('c');
           },
           complete : () => {
             this.loading = false;
           }
         }
       );
+  }
+
+  resetWindowSize(event): void{
+    //Reset the width and height based on current window size
+    this.width = event.target.innerWidth;
+    this.height = event.target.innerHeight;
+    if(this.showedDataType === 'Confirmed'){
+      this.initChart('c');
+    }else if(this.showedDataType === 'Active'){
+      this.initChart('a');
+    }else if(this.showedDataType === 'Recovered'){
+      this.initChart('r');
+    }else if(this.showedDataType === 'Deaths'){
+      this.initChart('d');
+    }
   }
 
   updateChart(caseType: string): void{
@@ -66,18 +85,21 @@ export class Covid19Component implements OnInit {
 
     this.globalData.forEach(cs => {
       let value: number;
-      console.log(cs.confirmed )
       if(caseType === 'c' && cs.confirmed > 300000 && !undefined){
         value = cs.confirmed;
+        this.showedDataType = 'Confirmed';
       }
       if(caseType === 'a' && cs.active > 200000 && !undefined){
         value = cs.active;
+        this.showedDataType = 'Active';
       }
       if(caseType === 'r' && cs.recovered > 300000 && !undefined){
         value = cs.recovered;
+        this.showedDataType = 'Recovered';
       }
       if(caseType === 'd' && cs.deaths > 10000 && !undefined){
         value = cs.deaths;
+        this.showedDataType = 'Deaths';
       }
 
       if (value){

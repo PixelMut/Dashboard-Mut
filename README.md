@@ -49,6 +49,7 @@ All of the components are declared in the shared module and not appmodule
 - Installed bootstrap (npm i ngx-bootstrap )
 - Installed Google charts ( npm i angular-google-charts )
 - Added Components and Service to project
+- npm install ngx-pagination --save
 
 
 

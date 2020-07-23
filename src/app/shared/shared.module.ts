@@ -27,6 +27,9 @@ import {Covid19DataService} from './services/covid19-data.service';
 import {CovidGlobalCardComponent} from '../modules/covid19/covid-global-card/covid-global-card.component';
 import {Covid19Component} from '../modules/covid19/covid19.component';
 import {GoogleChartsModule} from 'angular-google-charts';
+import {CovidByCountryComponent} from '../modules/covid19/covid-by-country/covid-by-country.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -43,7 +46,8 @@ import {GoogleChartsModule} from 'angular-google-charts';
     BoardComponent,
     SquareComponent,
     Covid19Component,
-    CovidGlobalCardComponent
+    CovidGlobalCardComponent,
+    CovidByCountryComponent
   ],
   imports: [
     CommonModule,
@@ -57,9 +61,11 @@ import {GoogleChartsModule} from 'angular-google-charts';
     RouterModule,
     HighchartsChartModule,
     MatTableModule,
+    MatPaginatorModule,
     MatDialogModule,
     HttpClientModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    NgxPaginationModule
   ],
   exports : [
     HeaderComponent,
@@ -73,7 +79,8 @@ import {GoogleChartsModule} from 'angular-google-charts';
     BoardComponent,
     SquareComponent,
     Covid19Component,
-    CovidGlobalCardComponent
+    CovidGlobalCardComponent,
+    CovidByCountryComponent
   ],
   providers: [DashboardService, Covid19DataService]
 })
