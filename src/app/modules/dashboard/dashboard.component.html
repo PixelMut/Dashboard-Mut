@@ -1,0 +1,36 @@
+<div>
+  <app-widget-area [dataSerie]="bigChart"></app-widget-area>
+</div>
+
+<br>
+<mat-divider></mat-divider>
+<br>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+ <mat-card fxFlex="25">
+   <app-widget-card [dataSerie]="card1" [label]="'New users'" [percentage]="'50'" [total]="'12k'"></app-widget-card>
+ </mat-card>
+ <mat-card fxFlex="25">
+   <app-widget-card [dataSerie]="card2" [label]="'Users retention'" [percentage]="'40'" [total]="'10k'"></app-widget-card>
+ </mat-card>
+ <mat-card fxFlex="25">
+   <app-widget-card [dataSerie]="card3" [label]="'Users engagement'" [percentage]="'30'" [total]="'8k'"></app-widget-card>
+ </mat-card>
+ <mat-card fxFlex="25">
+   <app-widget-card [dataSerie]="card4" [label]="'Referral'" [percentage]="'20'" [total]="'6k'"></app-widget-card>
+ </mat-card>
+</div>
+<br>
+<mat-divider></mat-divider>
+<br>
+
+<div class="thirdLine">
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+    <div fxFlex="60">
+      <app-widget-table [dataSource]="tableChart"></app-widget-table>
+    </div>
+    <div fxFlex="40">
+      <app-widget-pie [dataSerie]="pieChart"></app-widget-pie>
+    </div>
+  </div>
+
+</div>
