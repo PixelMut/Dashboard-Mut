@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,10 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  isUserLogged = false;
   @Output() toggleSideBar: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private authSrv: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -22,5 +23,18 @@ export class HeaderComponent implements OnInit {
       );
     }, 300);
   }
+
+
+  onLog(isLoggedIn): void{
+    console.log(this.isUserLogged)
+    this.isUserLogged = isLoggedIn;
+  }
+
+  onClickLogOut(): void{
+    this.authSrv.logout();
+    this.isUserLogged = false;
+  }
+
+
 
 }

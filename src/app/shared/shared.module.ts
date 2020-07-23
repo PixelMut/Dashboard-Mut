@@ -30,6 +30,9 @@ import {GoogleChartsModule} from 'angular-google-charts';
 import {CovidByCountryComponent} from '../modules/covid19/covid-by-country/covid-by-country.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {AuthService} from './services/auth.service';
+import {WebRequestService} from './services/web-request.service';
+import {LoginComponent} from '../modules/login/login.component';
 
 
 
@@ -47,7 +50,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     SquareComponent,
     Covid19Component,
     CovidGlobalCardComponent,
-    CovidByCountryComponent
+    CovidByCountryComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -80,8 +84,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     SquareComponent,
     Covid19Component,
     CovidGlobalCardComponent,
-    CovidByCountryComponent
+    CovidByCountryComponent,
+    LoginComponent
   ],
-  providers: [DashboardService, Covid19DataService]
+  providers: [DashboardService, Covid19DataService, AuthService, WebRequestService]
 })
 export class SharedModule { }
