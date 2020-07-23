@@ -2,13 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
-## Steps :
+All of the components are declared in the shared module and not appmodule
 
-## Pre-required
-# Install angular material : npm i @angular/material && ng add @angular/material
-# Install highcharts : npm i highcharts-angular && npm i highcharts
-# Other dependencies :  npm i @angular/flex-layout @angular/cdk --save
+# Steps :
+# --------------------------
+## Pre-required :
+- Install angular material : npm i @angular/material && ng add @angular/material
+- Install highcharts : npm i highcharts-angular && npm i highcharts
+- Other dependencies :  npm i @angular/flex-layout @angular/cdk --save
 
+# --------------------------
 ## Step 1 :
 - Create the first layout ( ng g c layouts/default, ng g m layouts/default )
 - Create a component for the dashboard (ng g c modules/dashboard)
@@ -21,12 +24,32 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Create and arrange Sidebar UI
 - Make the menu button work
 
-
+# ---------------------------
 ## Step 2 :
 - Importation of Highcharts elements
 - Creation of widgets ( nested components )
 - Sharing/export of components
 - Implementation of charts
+
+# ------------------------------
+# ------------------------------
+
+# Big Project :
+- install bulma css : npm install bulma
+- Creation of main-styles.css and custom scss
+- header styling ( color ), possibility to change between custom bulma css and default angular material css (styles.scss)
+
+## Implementation of Tic-Tac-Toe 
+- Added components square & board
+- Modification of UI & UX
+- Added Dialog, global point count & reset button
+
+##Implementation of Covid-19 Tracker
+- Added bootstrap lib for style (index.html)
+- Installed bootstrap (npm i ngx-bootstrap )
+- Installed Google charts ( npm i angular-google-charts )
+- Added Components and Service to project
+
 
 
 ## Development server

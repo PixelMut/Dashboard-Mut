@@ -1,0 +1,35 @@
+<div class="main-container">
+  <div class="current-player">
+    <h1>Current player : {{ player }}</h1>
+  </div>
+
+
+  <!--to convert into modal-->
+  <!--<h2 *ngIf="winner">-->
+    <!--Player {{ winner }} won the game-->
+  <!--</h2>-->
+
+  <div class="game-board">
+    <div class="col left">
+      <mat-icon >person</mat-icon>
+      <p>Score player X :</p>
+      <p>{{ scoreX }}</p>
+    </div>
+    <div class="col center">
+      <app-square disabled="true" *ngFor="let val of squares; let i = index" [value]="val" (click)="makeMove(i)"></app-square>
+    </div>
+    <div class="col right">
+      <mat-icon>person_outline</mat-icon>
+      <p>Score player O :</p>
+      <p>{{ scoreO }}</p>
+    </div>
+  </div>
+
+  <div class="action-button">
+    <button mat-raised-button class="new-game" (click)="newGame()">Start new Game</button>
+    <button mat-raised-button class="reset-game" (click)="resetScores()" *ngIf="scoreX !== 0 || scoreO !== 0">Reset Scores</button>
+    <!--<button mat-raised-button  (click)="openDialog()">dialog</button>-->
+  </div>
+
+
+</div>

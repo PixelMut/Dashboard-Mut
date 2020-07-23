@@ -17,6 +17,16 @@ import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
 import { TableComponent } from './widgets/table/table.component';
 import {MatTableModule} from '@angular/material/table';
+import {SquareComponent} from '../modules/tictactoe/square/square.component';
+import {TictactoeComponent} from '../modules/tictactoe/tictactoe.component';
+import {BoardComponent} from '../modules/tictactoe/board/board.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {HttpClientModule} from '@angular/common/http';
+import {DashboardService} from './services/dashboard.service';
+import {Covid19DataService} from './services/covid19-data.service';
+import {CovidGlobalCardComponent} from '../modules/covid19/covid-global-card/covid-global-card.component';
+import {Covid19Component} from '../modules/covid19/covid19.component';
+import {GoogleChartsModule} from 'angular-google-charts';
 
 
 
@@ -29,6 +39,11 @@ import {MatTableModule} from '@angular/material/table';
     CardComponent,
     PieComponent,
     TableComponent,
+    TictactoeComponent,
+    BoardComponent,
+    SquareComponent,
+    Covid19Component,
+    CovidGlobalCardComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +56,10 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     RouterModule,
     HighchartsChartModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    HttpClientModule,
+    GoogleChartsModule
   ],
   exports : [
     HeaderComponent,
@@ -50,7 +68,13 @@ import {MatTableModule} from '@angular/material/table';
     AreaComponent,
     CardComponent,
     PieComponent,
-    TableComponent
-  ]
+    TableComponent,
+    TictactoeComponent,
+    BoardComponent,
+    SquareComponent,
+    Covid19Component,
+    CovidGlobalCardComponent
+  ],
+  providers: [DashboardService, Covid19DataService]
 })
 export class SharedModule { }
