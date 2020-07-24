@@ -7,6 +7,7 @@ import {TictactoeComponent} from './modules/tictactoe/tictactoe.component';
 import {Covid19Component} from './modules/covid19/covid19.component';
 import {TaskViewComponent} from './modules/task-manager/task-view/task-view.component';
 import {BudgetMainPageComponent} from './modules/budget/budget-main-page/budget-main-page.component';
+import {KbMainViewComponent} from './modules/kanban/kb-main-view/kb-main-view.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
     { path : 'covid19', component : Covid19Component },
     { path : 'tm/lists', component : TaskViewComponent},
     { path : 'tm/lists/:listId', component : TaskViewComponent},
-    { path : 'budget', component : BudgetMainPageComponent}
+    { path : 'budget', component : BudgetMainPageComponent},
+    { path : 'kanban', component : KbMainViewComponent},
+
   ]}
 ];
 

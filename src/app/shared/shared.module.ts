@@ -41,6 +41,8 @@ import {BudgetItemListComponent} from '../modules/budget/budget-item-list/budget
 import {BudgetMainPageComponent} from '../modules/budget/budget-main-page/budget-main-page.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {KbMainViewComponent} from '../modules/kanban/kb-main-view/kb-main-view.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 
@@ -65,7 +67,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AddItemFormComponent,
     BudgetItemListComponent,
     BudgetItemCardComponent,
-    EditItemModalComponent
+    EditItemModalComponent,
+    KbMainViewComponent
   ],
   imports: [
     CommonModule,
@@ -85,7 +88,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatDialogModule,
     HttpClientModule,
     GoogleChartsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DragDropModule
   ],
   exports : [
     HeaderComponent,
@@ -107,7 +111,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AddItemFormComponent,
     BudgetItemListComponent,
     BudgetItemCardComponent,
-    EditItemModalComponent
+    EditItemModalComponent,
+    KbMainViewComponent
   ],
   providers: [DashboardService, Covid19DataService, AuthService, WebRequestService]
 })

@@ -63,7 +63,15 @@ All of the components are declared in the shared module and not appmodule
 - Custom CSS
 - Usage of interceptor for http request, with refresh token
 
-## Implementation of Budget Manager ( to come )
+## Implementation of Budget Manager 
+- Added Components
+- Custom CSS
+
+## Implementation of Kanban
+- npm install @angular/cdk --save
+- Added main view component
+- Custom CSS
+
 
 ## Development server
 
