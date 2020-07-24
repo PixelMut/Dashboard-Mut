@@ -6,6 +6,7 @@ import {catchError, switchMap, tap} from 'rxjs/operators';
 import {throwError} from 'rxjs/internal/observable/throwError';
 import {empty} from 'rxjs/internal/observable/empty';
 import {Subject} from 'rxjs/internal/Subject';
+import {isDefined} from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,16 @@ export class WebReqInterceptor implements HttpInterceptor{
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any>{
     // handle the request
-    if (request.headers.get('skipInterceptor') === 'true'){
+    console.log(request.headers.keys());
+
+    if ( request.headers.get('skipInterceptor') === 'true'){
+      console.log(' skip interceptor ');
       request = request.clone({
         headers: request.headers.delete('skipInterceptor')
       });
       return next.handle(request);
     }else{
+      console.log('intercepted')
       request = this.addAuthHeader(request);
       // call next and handle response
       return next.handle(request).pipe(

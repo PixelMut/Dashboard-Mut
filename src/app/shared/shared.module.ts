@@ -43,6 +43,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {KbMainViewComponent} from '../modules/kanban/kb-main-view/kb-main-view.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {AuthGuard} from './services/auth.guard';
 
 
 
@@ -114,6 +115,6 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     EditItemModalComponent,
     KbMainViewComponent
   ],
-  providers: [DashboardService, Covid19DataService, AuthService, WebRequestService]
+  providers: [DashboardService, Covid19DataService, AuthService, WebRequestService, AuthGuard]
 })
 export class SharedModule { }

@@ -8,6 +8,7 @@ import {Covid19Component} from './modules/covid19/covid19.component';
 import {TaskViewComponent} from './modules/task-manager/task-view/task-view.component';
 import {BudgetMainPageComponent} from './modules/budget/budget-main-page/budget-main-page.component';
 import {KbMainViewComponent} from './modules/kanban/kb-main-view/kb-main-view.component';
+import {AuthGuard} from './shared/services/auth.guard';
 
 
 const routes: Routes = [
@@ -15,8 +16,8 @@ const routes: Routes = [
     { path : '', component : DashboardComponent },
     { path : 'posts', component : PostsComponent },
     { path : 'tictactoe', component : TictactoeComponent },
-    { path : 'covid19', component : Covid19Component },
-    { path : 'tm/lists', component : TaskViewComponent},
+    { path : 'covid19', component : Covid19Component, canActivate: [AuthGuard] },
+    { path : 'tm/lists', component : TaskViewComponent, canActivate: [AuthGuard] },
     { path : 'tm/lists/:listId', component : TaskViewComponent},
     { path : 'budget', component : BudgetMainPageComponent},
     { path : 'kanban', component : KbMainViewComponent},

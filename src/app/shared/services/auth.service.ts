@@ -9,7 +9,7 @@ import {WebRequestService} from './web-request.service';
   providedIn: 'root'
 })
 export class AuthService {
-
+  isLogged = false;
   constructor(private websrv: WebRequestService, private router : Router, private http: HttpClient) { }
 
   login(email: string, pwd: string): Observable<any>{
@@ -19,9 +19,12 @@ export class AuthService {
         // the auth token will be in the header of the response
         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
         console.log('logged in');
+        this.isLogged = true;
+        //this.isUserLogged = res.status === 200 ? true : false;
       })
     );
   }
+
 
   signup(email: string, pwd: string): Observable<any>{
     return this.websrv.signup(email, pwd).pipe(
@@ -34,8 +37,12 @@ export class AuthService {
     );
   }
 
+
+
+
   logout(): void{
     this.removeSession();
+    this.isLogged = false;
     //this.router.navigateByUrl('/login');
   }
 
@@ -73,10 +80,12 @@ export class AuthService {
   }
 
   getNewAccessToken(): any{
+    console.log('gonna try')
+
     return this.http.get(`${this.websrv.ROOT_URL}/users/me/access-token`, {
       headers : {
-        'x-refresh-token' : this.getRefreshToken(),
-        '_id' : this.getUserId()
+        'x-refresh-token' : this.getRefreshToken() ? this.getRefreshToken() : '',
+        '_id' : this.getUserId() ? this.getUserId() : ''
       },
       observe : 'response'
     }).pipe(

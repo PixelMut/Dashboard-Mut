@@ -9,10 +9,19 @@ import {AuthService} from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
   isUserLogged = false;
   @Output() toggleSideBar: EventEmitter<any> = new EventEmitter<any>();
+  userEmail = '';
 
   constructor(private authSrv: AuthService) { }
 
   ngOnInit(): void {
+    this.authSrv.getNewAccessToken().subscribe((res) => {
+      if(res && res.status === 200){
+        console.log(res)
+        this.isUserLogged = true;
+        this.userEmail = res.body.email;
+        this.authSrv.isLogged = true;
+      }
+    });
   }
 
   onClickMenu(): void{
@@ -25,9 +34,15 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  onLog(isLoggedIn): void{
-    console.log(this.isUserLogged)
-    this.isUserLogged = isLoggedIn;
+  onLog(result): void{
+    if(result.status === 200){
+      this.isUserLogged = true;
+      console.log(result.body)
+      this.userEmail = result.body.email;
+    }else{
+      this.isUserLogged = false;
+    }
+
   }
 
   onClickLogOut(): void{

@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result === 'loggedIn'){
-        this.isLogged.emit(true);
+      if(result.status === 200){
+        this.isLogged.emit(result);
       }else{
         this.isLogged.emit(false);
       }
@@ -60,7 +60,7 @@ export class LoginDialogComponent {
     this.authSrv.login(email, pwd).subscribe((res: HttpResponse<any>) => {
       if (res.status === 200){
         // logged in successfully
-        this.dialogRef.close('loggedIn');
+        this.dialogRef.close(res);
         //this.router.navigate(['/lists']);
       }
     });
