@@ -82,31 +82,33 @@ export class Covid19Component implements OnInit {
   initChart(caseType: string): void{
 
     this.datatable = [];
+    if(this.globalData){
+      this.globalData.forEach(cs => {
+        let value: number;
+        if(caseType === 'c' && cs.confirmed > 300000 && !undefined){
+          value = cs.confirmed;
+          this.showedDataType = 'Confirmed';
+        }
+        if(caseType === 'a' && cs.active > 200000 && !undefined){
+          value = cs.active;
+          this.showedDataType = 'Active';
+        }
+        if(caseType === 'r' && cs.recovered > 300000 && !undefined){
+          value = cs.recovered;
+          this.showedDataType = 'Recovered';
+        }
+        if(caseType === 'd' && cs.deaths > 10000 && !undefined){
+          value = cs.deaths;
+          this.showedDataType = 'Deaths';
+        }
 
-    this.globalData.forEach(cs => {
-      let value: number;
-      if(caseType === 'c' && cs.confirmed > 300000 && !undefined){
-        value = cs.confirmed;
-        this.showedDataType = 'Confirmed';
-      }
-      if(caseType === 'a' && cs.active > 200000 && !undefined){
-        value = cs.active;
-        this.showedDataType = 'Active';
-      }
-      if(caseType === 'r' && cs.recovered > 300000 && !undefined){
-        value = cs.recovered;
-        this.showedDataType = 'Recovered';
-      }
-      if(caseType === 'd' && cs.deaths > 10000 && !undefined){
-        value = cs.deaths;
-        this.showedDataType = 'Deaths';
-      }
+        if (value){
+          this.datatable.push([cs.country, value]);
+        }
+      });
+    }
 
-      if (value){
-        this.datatable.push([cs.country, value]);
-      }
-    });
-    console.log(this.datatable);
+    //console.log(this.datatable);
 
   }
 

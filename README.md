@@ -44,14 +44,26 @@ All of the components are declared in the shared module and not appmodule
 - Modification of UI & UX
 - Added Dialog, global point count & reset button
 
-##Implementation of Covid-19 Tracker
+## Implementation of Covid-19 Tracker
 - Added bootstrap lib for style (index.html)
 - Installed bootstrap (npm i ngx-bootstrap )
 - Installed Google charts ( npm i angular-google-charts )
 - Added Components and Service to project
 - npm install ngx-pagination --save
 
+## Implementation of Login Process
+- Added Backend link
+- Added Authentication Service
+- Added Token system
+- Added Interceptor for HTTP Request - With possibility to skip
 
+## Implementation of Task Manager
+- Added Main page 
+- Added modals for edit & creation
+- Custom CSS
+- Usage of interceptor for http request, with refresh token
+
+## Implementation of Budget Manager ( to come )
 
 ## Development server
 

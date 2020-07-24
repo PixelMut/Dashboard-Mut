@@ -15,7 +15,9 @@ export class Covid19DataService {
   constructor(private http: HttpClient) { }
 
   getGlobalData(): Observable<any>{
-    return this.http.get(this.globalDataUrl, {responseType : 'text'}).pipe(
+    return this.http.get(this.globalDataUrl,
+      {responseType : 'text', headers : { skipInterceptor : 'true'}},
+      ).pipe(
       map(res => {
         let data : GlobalDataSummary[] = [];
         let raw = {};
@@ -52,7 +54,9 @@ export class Covid19DataService {
   }
 
   getDateWiseData(): Observable<any>{
-    return this.http.get(this.dateWiseDataUrl, { responseType : 'text'})
+    return this.http.get(this.dateWiseDataUrl, {
+      responseType : 'text', headers : { skipInterceptor : 'true'}
+    })
       .pipe(
         map(result => {
             const rows = result.split('\n');
