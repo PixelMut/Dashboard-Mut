@@ -34,6 +34,13 @@ import {AuthService} from './services/auth.service';
 import {WebRequestService} from './services/web-request.service';
 import {LoginComponent} from '../modules/login/login.component';
 import {TaskViewComponent} from '../modules/task-manager/task-view/task-view.component';
+import {BudgetItemCardComponent} from '../modules/budget/budget-item-list/budget-item-card/budget-item-card.component';
+import {EditItemModalComponent} from '../modules/budget/edit-item-modal/edit-item-modal.component';
+import {AddItemFormComponent} from '../modules/budget/add-item-form/add-item-form.component';
+import {BudgetItemListComponent} from '../modules/budget/budget-item-list/budget-item-list.component';
+import {BudgetMainPageComponent} from '../modules/budget/budget-main-page/budget-main-page.component';
+import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -53,10 +60,17 @@ import {TaskViewComponent} from '../modules/task-manager/task-view/task-view.com
     CovidGlobalCardComponent,
     CovidByCountryComponent,
     LoginComponent,
-    TaskViewComponent
+    TaskViewComponent,
+    BudgetMainPageComponent,
+    AddItemFormComponent,
+    BudgetItemListComponent,
+    BudgetItemCardComponent,
+    EditItemModalComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    BrowserAnimationsModule,
     MatDividerModule,
     MatToolbarModule,
     MatButtonModule,
@@ -88,7 +102,12 @@ import {TaskViewComponent} from '../modules/task-manager/task-view/task-view.com
     CovidGlobalCardComponent,
     CovidByCountryComponent,
     LoginComponent,
-    TaskViewComponent
+    TaskViewComponent,
+    BudgetMainPageComponent,
+    AddItemFormComponent,
+    BudgetItemListComponent,
+    BudgetItemCardComponent,
+    EditItemModalComponent
   ],
   providers: [DashboardService, Covid19DataService, AuthService, WebRequestService]
 })

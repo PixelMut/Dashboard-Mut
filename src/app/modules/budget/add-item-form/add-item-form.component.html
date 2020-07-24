@@ -1,0 +1,29 @@
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)" >
+  <div class="field is-horizontal">
+    <div class="field-body">
+
+      <!--field amount-->
+      <div class="field is-narrow">
+        <p class="control">
+          <input required type="number" class="input" name="amount" style="width:100px" placeholder="Amount" [ngModel]="item.amount">
+        </p>
+      </div>
+
+      <!--field description-->
+      <div class="field">
+        <p class="control">
+          <input required type="text" name="description" class="input"  placeholder="Description" [ngModel]="item.description">
+        </p>
+      </div>
+
+      <!--button add-->
+      <div class="field is-narrow">
+
+        <button [disabled]="!itemForm.valid" type="submit" class="button"  [ngClass]="{ 'is-primary' : isNewItem, 'is-success' : !isNewItem}" >
+          <p *ngIf="isNewItem" class="has-text-white" style="margin-bottom: 0">Add</p>
+          <p *ngIf="!isNewItem">Save</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,61 +1,64 @@
-<div class="jumbotron bg-white text-center" style="padding-bottom: 0; padding-top: 0">
-  <!--<h1 class="title">Covid 19 Tracker</h1>-->
-  <!--<h1 class="display-4">Display 4</h1>-->
-  <!--<hr>-->
-  <app-covid-global-card
-    [totalActive]="totalActive"
-    [totalConfirmed]="totalConfirmed"
-    [totalDeaths]="totalDeaths"
-    [totalRecovered]="totalRecovered"
-  ></app-covid-global-card>
-</div>
+<div class="main-container">
+  <div class="jumbotron bg-white text-center" style="padding-bottom: 0; padding-top: 0">
+    <!--<h1 class="title">Covid 19 Tracker</h1>-->
+    <!--<h1 class="display-4">Display 4</h1>-->
+    <!--<hr>-->
+    <app-covid-global-card
+      [totalActive]="totalActive"
+      [totalConfirmed]="totalConfirmed"
+      [totalDeaths]="totalDeaths"
+      [totalRecovered]="totalRecovered"
+    ></app-covid-global-card>
+  </div>
 
-<hr>
+  <hr>
 
-<div class="row graphs">
-  <div class="col card p-3 m-3" (window:resize) = "resetWindowSize($event)">
-    <div class="row" (window:resize) = "resetWindowSize($event)">
-      <div class="col-2">
-        <button mat-button [matMenuTriggerFor]="menu">
-          <mat-icon>perm_data_setting</mat-icon>
-          {{ showedDataType }}
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="updateChart('c')">
-            Confirmed
+  <div class="row graphs">
+    <div class="col card p-3 m-3" (window:resize) = "resetWindowSize($event)">
+      <div class="row" (window:resize) = "resetWindowSize($event)">
+        <div class="col-2">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>perm_data_setting</mat-icon>
+            {{ showedDataType }}
           </button>
-          <button mat-menu-item (click)="updateChart('d')">
-            Deaths
-          </button>
-          <button mat-menu-item (click)="updateChart('r')">
-            Recovered
-          </button>
-          <button mat-menu-item (click)="updateChart('a')">
-            Active
-          </button>
-        </mat-menu>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="updateChart('c')">
+              Confirmed
+            </button>
+            <button mat-menu-item (click)="updateChart('d')">
+              Deaths
+            </button>
+            <button mat-menu-item (click)="updateChart('r')">
+              Recovered
+            </button>
+            <button mat-menu-item (click)="updateChart('a')">
+              Active
+            </button>
+          </mat-menu>
+        </div>
+        <div class="col-10">
+          <google-chart [type]='chart.PieChart' [options]='chart.options' style="width: 100%;" [height]='chart.height' [data]='datatable'></google-chart>
+        </div>
       </div>
-      <div class="col-10">
-        <google-chart [type]='chart.PieChart' [options]='chart.options' style="width: 100%;" [height]='chart.height' [data]='datatable'></google-chart>
-      </div>
+
     </div>
-
+    <div class="col card p-3 m-3" (window:resize) = "resetWindowSize($event)">
+      <google-chart [type]='chart.ColumnChart' style="width: 100%;" [options]='chart.options' [height]='chart.height' [data]='datatable'></google-chart>
+    </div>
   </div>
-  <div class="col card p-3 m-3" (window:resize) = "resetWindowSize($event)">
-    <google-chart [type]='chart.ColumnChart' style="width: 100%;" [options]='chart.options' [height]='chart.height' [data]='datatable'></google-chart>
-  </div>
-</div>
 
-<hr>
+  <hr>
 
-<app-covid-by-country></app-covid-by-country>
+  <app-covid-by-country></app-covid-by-country>
 
 
 
-<!--<div class="row">-->
+  <!--<div class="row">-->
   <!--<div class="col card p-3 m-3">-->
-      <!--<google-chart [type]='chart.PieChart' [options]='chart.options' style="width: 100%;" [height]='chart.height' [data]='datatable'></google-chart>-->
+  <!--<google-chart [type]='chart.PieChart' [options]='chart.options' style="width: 100%;" [height]='chart.height' [data]='datatable'></google-chart>-->
   <!--</div>-->
 
-<!--</div>-->
+  <!--</div>-->
 
+
+</div>

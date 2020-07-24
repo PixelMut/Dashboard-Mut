@@ -9,6 +9,7 @@
   max-width: 1200px;
   //max-height: 500px;
   position : relative; // relative to .circle-add-butto
+  padding:35px;
 }
 
 .sidebar{
@@ -133,12 +134,13 @@
 
 .circle-add-button{
   position: absolute; /// absolute in .task-list-container
-  bottom : 35px;
-  right: 35px;
+  bottom : 55px;
+  right: 55px;
   height: 50px;
   width: 50px;
 
   border-radius: 50%;
+
 }
 
 
