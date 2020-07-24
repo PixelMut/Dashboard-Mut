@@ -33,6 +33,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {AuthService} from './services/auth.service';
 import {WebRequestService} from './services/web-request.service';
 import {LoginComponent} from '../modules/login/login.component';
+import {TaskViewComponent} from '../modules/task-manager/task-view/task-view.component';
 
 
 
@@ -51,7 +52,8 @@ import {LoginComponent} from '../modules/login/login.component';
     Covid19Component,
     CovidGlobalCardComponent,
     CovidByCountryComponent,
-    LoginComponent
+    LoginComponent,
+    TaskViewComponent
   ],
   imports: [
     CommonModule,
@@ -85,7 +87,8 @@ import {LoginComponent} from '../modules/login/login.component';
     Covid19Component,
     CovidGlobalCardComponent,
     CovidByCountryComponent,
-    LoginComponent
+    LoginComponent,
+    TaskViewComponent
   ],
   providers: [DashboardService, Covid19DataService, AuthService, WebRequestService]
 })
