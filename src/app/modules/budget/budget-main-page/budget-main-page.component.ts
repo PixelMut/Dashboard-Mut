@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BudgetItem} from '../../../models/b/budget-item';
 import {updateEvent} from '../budget-item-list/budget-item-list.component';
+import {BudgetService} from '../../../shared/services/budget.service';
 
 @Component({
   selector: 'app-budget-main-page',
@@ -11,29 +12,45 @@ export class BudgetMainPageComponent implements OnInit {
   budgetItems: BudgetItem[] = new Array<BudgetItem>();
   totalBudget = 0;
 
-  constructor() { }
+  constructor(private budgetSrv: BudgetService) { }
 
   ngOnInit(): void {
+    this.budgetSrv.getBudgets().subscribe((b_items: any) => {
+      this.budgetItems = b_items;
+      this.calculGlobalAmount();
+    });
+
+  }
+
+  calculGlobalAmount(): void{
+    this.totalBudget = 0;
+    this.budgetItems.forEach(item => {
+      this.totalBudget += item.amount;
+    });
   }
 
   addItem(newItem: BudgetItem): void{
-    this.budgetItems.push(newItem);
-    this.totalBudget += newItem.amount;
+    this.budgetSrv.addItem(newItem).subscribe((res)=>{
+      this.budgetItems = res;
+      this.calculGlobalAmount();
+    });
+
   }
 
   deleteItem(item): void{
-    const index = this.budgetItems.indexOf(item);
-    this.budgetItems.splice(index, 1);
-    this.totalBudget -= item.amount;
+    this.budgetSrv.deleteItem(item).subscribe((res)=>{
+      this.budgetItems = res;
+      this.calculGlobalAmount();
+    });
+
   }
 
-  updateItem(updateEvent: updateEvent){
-    // replace the item with the updated submitted item from the form
-    this.budgetItems[this.budgetItems.indexOf(updateEvent.old)] = updateEvent.new;
+  updateItem(updateEvent: updateEvent): void{
+    this.budgetSrv.updateItem(updateEvent).subscribe((res)=>{
+      this.budgetItems = res;
+      this.calculGlobalAmount();
+    });
 
-    //update the total budget
-    this.totalBudget -= updateEvent.old.amount;
-    this.totalBudget += updateEvent.new.amount;
   }
 
 }
