@@ -20,21 +20,21 @@ export class WebReqInterceptor implements HttpInterceptor{
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any>{
     // handle the request
-    console.log(request.headers.keys());
+    //console.log(request.headers.keys());
 
     if ( request.headers.get('skipInterceptor') === 'true'){
-      console.log(' skip interceptor ');
+      //console.log(' skip interceptor ');
       request = request.clone({
         headers: request.headers.delete('skipInterceptor')
       });
       return next.handle(request);
     }else{
-      console.log('intercepted')
+      //console.log('intercepted')
       request = this.addAuthHeader(request);
       // call next and handle response
       return next.handle(request).pipe(
         catchError((error: HttpErrorResponse) => {
-          console.log(error);
+         // console.log(error);
           if(error.status === 401 ){
             // 401 : Unauthorized
             // we want to refresh the access token
@@ -45,7 +45,7 @@ export class WebReqInterceptor implements HttpInterceptor{
                   return next.handle(request);
                 }),
                 catchError((err: any) => {
-                  console.log(err);
+                  //console.log(err);
                   this.authSrv.logout();
                   return empty();
                 })

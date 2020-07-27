@@ -80,7 +80,7 @@ export class AuthService {
   }
 
   getNewAccessToken(): any{
-    console.log('gonna try')
+    //console.log('gonna try')
 
     return this.http.get(`${this.websrv.ROOT_URL}/users/me/access-token`, {
       headers : {

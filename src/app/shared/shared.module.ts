@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {HeaderComponent} from './components/header/header.component';
@@ -115,6 +115,6 @@ import {AuthGuard} from './services/auth.guard';
     EditItemModalComponent,
     KbMainViewComponent
   ],
-  providers: [DashboardService, Covid19DataService, AuthService, WebRequestService, AuthGuard]
+  providers: [DashboardService, Covid19DataService, AuthService, WebRequestService, AuthGuard, DatePipe]
 })
 export class SharedModule { }

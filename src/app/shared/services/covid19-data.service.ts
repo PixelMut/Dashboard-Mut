@@ -4,18 +4,25 @@ import {Observable} from 'rxjs';
 import {GlobalDataSummary} from '../../models/global-data';
 import {DateWiseData} from '../../models/date-wise-data';
 import {map} from 'rxjs/operators';
+import {DatePipe} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Covid19DataService {
-  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/07-22-2020.csv';
+  // private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/07-26-2020.csv';
+  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/';
   private dateWiseDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private datepipe: DatePipe) { }
 
   getGlobalData(): Observable<any>{
-    return this.http.get(this.globalDataUrl,
+    let dateDuJour = new Date();
+    dateDuJour.setDate(dateDuJour.getDate() - 1);
+    let dateHier = this.datepipe.transform(dateDuJour, 'MM-dd-yyyy');
+
+    return this.http.get(this.globalDataUrl + dateHier + '.csv',
       {responseType : 'text', headers : { skipInterceptor : 'true'}},
       ).pipe(
       map(res => {
@@ -80,7 +87,7 @@ export class Covid19DataService {
                 mainData[country].push(dw);
               });
             });
-            console.log(mainData);
+            //console.log(mainData);
             return mainData;
           }
         )
