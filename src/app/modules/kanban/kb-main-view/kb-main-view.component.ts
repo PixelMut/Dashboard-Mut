@@ -21,17 +21,30 @@ export class KbMainViewComponent implements OnInit {
       'qzdqzdzqd'
     ]),
     new Column('Todo', [
-      'Get to work',
-      'Pick up groceries',
-      'Go home',
-      'Fall asleep'
+      'Mail Ulb',
+      'Envoyer Portable',
+      'Cadeau mariage : jenga',
+      'CV',
+      'Remboursement vol lyon',
+      'Photo famille ; integrer ozan',
+      'Reservation simu voiture',
+      'Montage video Pinot',
+      'Rdv consulat truc',
+      '2e rdv dentiste',
+      'Voucher easyjet 12CQV6 (87€)',
+      'Voucher KLM : appeler',
     ]),
     new Column('Done', [
-      'Get up',
-      'Brush teeth',
-      'Take a shower',
-      'Check e-mail',
-      'Walk dog'
+      'Quietis écran tel num IMEI',
+      'Onem U1',
+      'Pole emploi : inscription',
+      'Degustation de vin a domicile',
+      'Transferer photos tel',
+      'Imprimer papiers quietis',
+      'Rdv veto',
+      'Basic fit facture',
+      'Brussel airlines : appeler',
+      'Rdv barbier'
     ])
   ]);
 

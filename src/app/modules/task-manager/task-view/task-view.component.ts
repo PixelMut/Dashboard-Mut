@@ -4,6 +4,7 @@ import {List} from '../../../models/tm/list.model';
 import {Task} from '../../../models/tm/task.model';
 import {TaskManagerService} from '../../../shared/services/task-manager.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {AuthService} from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-task-view',
@@ -18,7 +19,8 @@ export class TaskViewComponent implements OnInit {
   constructor( private taskSrv: TaskManagerService,
                private route: ActivatedRoute,
                private router: Router,
-               public dialog: MatDialog) {
+               public dialog: MatDialog,
+               private authSrv: AuthService) {
 
   }
 
@@ -102,19 +104,23 @@ export class TaskViewComponent implements OnInit {
 
   // ajout d'une nouvelle task
   openModelNewTask(listId): void{
+    console.log(listId)
+    console.log(this.selectedListId)
     const dialogRef = this.dialog.open(NewTaskDialogComponent, {
       width: '300px',
       data: listId
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.taskSrv.getLists().subscribe((lists:any[]) => {
-        this.lists = lists;
-      });
-      this.selectedListId = result;
-      this.taskSrv.getTasks(result).subscribe((tasks: any) => {
-        this.tasks = tasks;
-      });
+      if(result){
+        this.taskSrv.getLists().subscribe((lists:any[]) => {
+          this.lists = lists;
+        });
+        this.selectedListId = result;
+        this.taskSrv.getTasks(result).subscribe((tasks: any) => {
+          this.tasks = tasks;
+        });
+      }
     });
   }
 
@@ -212,6 +218,7 @@ export class NewTaskDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data,
     private tmSrv: TaskManagerService) {
     this.listId = data;
+    console.log(this.listId)
   }
 
     createTask(title: string): void{

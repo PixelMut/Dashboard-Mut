@@ -42,7 +42,7 @@ export class AuthService {
 
   logout(): void{
     this.removeSession();
-    this.isLogged = false;
+    //this.isLogged = false;
     //this.router.navigateByUrl('/login');
   }
 
