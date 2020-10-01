@@ -1,4 +1,9 @@
-<div class="centered-content">
+<div class="info-area">
+  <app-info-header dataToShow="tm" (toggleTarget)="scrollToElement(target)"></app-info-header>
+</div>
+
+<mat-divider></mat-divider>
+<div class="centered-content" #target>
   <div class="task-manager-container">
     <div class="sidebar has-background-white">
       <h1 class="title has-text-primary">Lists</h1>

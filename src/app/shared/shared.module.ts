@@ -39,11 +39,15 @@ import {EditItemModalComponent} from '../modules/budget/edit-item-modal/edit-ite
 import {AddItemFormComponent} from '../modules/budget/add-item-form/add-item-form.component';
 import {BudgetItemListComponent} from '../modules/budget/budget-item-list/budget-item-list.component';
 import {BudgetMainPageComponent} from '../modules/budget/budget-main-page/budget-main-page.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {KbMainViewComponent} from '../modules/kanban/kb-main-view/kb-main-view.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {AuthGuard} from './services/auth.guard';
+import {IgxAvatarModule} from 'igniteui-angular';
+import {HomeComponent} from '../modules/home/home.component';
+import { InfoHeaderComponent } from './widgets/info-header/info-header.component';
+
 
 
 
@@ -69,11 +73,14 @@ import {AuthGuard} from './services/auth.guard';
     BudgetItemListComponent,
     BudgetItemCardComponent,
     EditItemModalComponent,
-    KbMainViewComponent
+    KbMainViewComponent,
+    HomeComponent,
+    InfoHeaderComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDividerModule,
     MatToolbarModule,
@@ -90,7 +97,8 @@ import {AuthGuard} from './services/auth.guard';
     HttpClientModule,
     GoogleChartsModule,
     NgxPaginationModule,
-    DragDropModule
+    DragDropModule,
+    IgxAvatarModule
   ],
   exports : [
     HeaderComponent,
@@ -113,7 +121,9 @@ import {AuthGuard} from './services/auth.guard';
     BudgetItemListComponent,
     BudgetItemCardComponent,
     EditItemModalComponent,
-    KbMainViewComponent
+    KbMainViewComponent,
+    HomeComponent,
+    InfoHeaderComponent
   ],
   providers: [DashboardService, Covid19DataService, AuthService, WebRequestService, AuthGuard, DatePipe]
 })

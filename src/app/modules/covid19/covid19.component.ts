@@ -59,6 +59,13 @@ export class Covid19Component implements OnInit {
       );
   }
 
+
+  scrollToElement($element): void {
+    // console.log($element);
+    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+  }
+
+
   resetWindowSize(event): void{
     //Reset the width and height based on current window size
     this.width = event.target.innerWidth;

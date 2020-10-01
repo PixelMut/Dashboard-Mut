@@ -16,35 +16,21 @@ export class KbMainViewComponent implements OnInit {
       'And last one'
     ]),
     new Column('Research', [
-      'qfzdqzdqzd',
-      'qzdgerdzq',
-      'qzdqzdzqd'
+      'Angular 11',
+      'Unity 3D - Formations',
+      'Freelance opportunities'
     ]),
     new Column('Todo', [
-      'Mail Ulb',
-      'Envoyer Portable',
-      'Cadeau mariage : jenga',
-      'CV',
-      'Remboursement vol lyon',
-      'Photo famille ; integrer ozan',
-      'Reservation simu voiture',
-      'Montage video Pinot',
-      'Rdv consulat truc',
-      '2e rdv dentiste',
-      'Voucher easyjet 12CQV6 (87€)',
-      'Voucher KLM : appeler',
+      'Finish portfolio',
+      'Tuto 15',
+      'Tuto 16',
+      'CV'
     ]),
     new Column('Done', [
-      'Quietis écran tel num IMEI',
-      'Onem U1',
-      'Pole emploi : inscription',
-      'Degustation de vin a domicile',
-      'Transferer photos tel',
-      'Imprimer papiers quietis',
-      'Rdv veto',
-      'Basic fit facture',
-      'Brussel airlines : appeler',
-      'Rdv barbier'
+      'Send emails',
+      'Do the presentation',
+      'Enjoy the summer',
+      'Wear a mask'
     ])
   ]);
 
@@ -52,6 +38,11 @@ export class KbMainViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  scrollToElement($element): void {
+    // console.log($element);
+    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
   drop(event: CdkDragDrop<string[]>) {

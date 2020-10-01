@@ -9,8 +9,9 @@ ul li{
   height:68px;
   display: flex;
   //background:linear-gradient(75deg,rgba(214,180,247),rgba(173,203,231)) ;
-  background:linear-gradient(75deg,$turquoise,$green) ;
-
+  //background:linear-gradient(75deg,$turquoise,$green) ;
+  background: rgb(24,187,114);
+  background: linear-gradient(90deg, rgba(24,187,114,1) 0%, rgba(31,201,138,1) 49%, rgba(39,215,161,1) 100%);
   //horizontaly and vertically center the text
   justify-content: center;
   align-items: center;

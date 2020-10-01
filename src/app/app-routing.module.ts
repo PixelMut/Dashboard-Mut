@@ -9,11 +9,13 @@ import {TaskViewComponent} from './modules/task-manager/task-view/task-view.comp
 import {BudgetMainPageComponent} from './modules/budget/budget-main-page/budget-main-page.component';
 import {KbMainViewComponent} from './modules/kanban/kb-main-view/kb-main-view.component';
 import {AuthGuard} from './shared/services/auth.guard';
+import {HomeComponent} from './modules/home/home.component';
 
 
 const routes: Routes = [
   { path: '', component : DefaultComponent, children : [
-    { path : '', component : DashboardComponent },
+    { path : '', component : HomeComponent },
+    { path : 'dashboard', component : DashboardComponent },
     { path : 'posts', component : PostsComponent },
     { path : 'tictactoe', component : TictactoeComponent },
     { path : 'covid19', component : Covid19Component, canActivate: [AuthGuard] },

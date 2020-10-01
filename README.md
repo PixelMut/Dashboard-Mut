@@ -72,7 +72,14 @@ All of the components are declared in the shared module and not appmodule
 - Added main view component
 - Custom CSS
 
+## Home page 
+- Hero Class for sections
+- Smooth scroll : https://www.npmjs.com/package/ngx-page-scroll
 
+--------------------------------
+When creating new component : delete the declaration from app module and add it to shared module (declaration and exports)
+
+---------------------------------
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

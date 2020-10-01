@@ -1,8 +1,12 @@
+<div class="info-area">
+  <app-info-header dataToShow="kanban" (toggleTarget)="scrollToElement(target)"></app-info-header>
+</div>
+
 <div class="root">
-  <div class="board">
-    <div class="board-bar">
-      <p class="board-name">My Kan Ban </p>
-    </div>
+  <div class="board" #target>
+    <!--<div class="board-bar">-->
+      <!--<p class="board-name">My Kan Ban </p>-->
+    <!--</div>-->
 
     <div class="board-wrapper">
 

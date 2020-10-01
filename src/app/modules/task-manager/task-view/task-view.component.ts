@@ -19,8 +19,7 @@ export class TaskViewComponent implements OnInit {
   constructor( private taskSrv: TaskManagerService,
                private route: ActivatedRoute,
                private router: Router,
-               public dialog: MatDialog,
-               private authSrv: AuthService) {
+               public dialog: MatDialog) {
 
   }
 
@@ -42,6 +41,11 @@ export class TaskViewComponent implements OnInit {
       this.lists = lists;
     });
 
+  }
+
+  scrollToElement($element): void {
+    // console.log($element);
+    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
   onTaskClick(task: Task): any{

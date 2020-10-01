@@ -1,5 +1,11 @@
 <div class="main-container">
-  <div class="jumbotron bg-white text-center" style="padding-bottom: 0; padding-top: 0">
+  <app-info-header dataToShow="covid" (toggleTarget)="scrollToElement(target)"></app-info-header>
+  <br>
+  <mat-divider></mat-divider>
+
+  <div #target></div>
+  <br>
+  <div class="jumbotron bg-white text-center" style="padding-bottom: 0; padding-top: 0" >
     <!--<h1 class="title">Covid 19 Tracker</h1>-->
     <!--<h1 class="display-4">Display 4</h1>-->
     <!--<hr>-->
