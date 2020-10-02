@@ -12,6 +12,7 @@ export class InfoHeaderComponent implements OnInit {
   subtitle = '';
   Text1 = '';
   Text2 = '';
+  Text3 = '';
 
   constructor() { }
 
@@ -31,9 +32,9 @@ export class InfoHeaderComponent implements OnInit {
       case 'dashboard': {
         this.title = 'Dashboard - Graphics and Statistics';
         this.subtitle = 'FxLayout - Widgets - HighCharts';
-        this.Text1 = 'In this page, I used different charts from HighCharts library, to illustrate complex data.' +
-        'Highcharts provides Graphs that can be easily exploited and understood \r\n' +
-           '        You can open in full width, print the chart, export as PNG, JPEG, PDF or even SVG file'
+        this.Text1 = 'In this page, I used different charts from HighCharts library, to illustrate complex data. Highcharts provides Graphs that can be easily exploited and understood';
+        this.Text2 = 'You can open in full width, print the chart, export as PNG, JPEG, PDF or even SVG file';
+        this.Text3 = 'The Charts are dynamic and can use filters';
         //statements;
         break;
       }
