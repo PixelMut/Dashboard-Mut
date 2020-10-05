@@ -47,6 +47,7 @@ import {AuthGuard} from './services/auth.guard';
 import {IgxAvatarModule} from 'igniteui-angular';
 import {HomeComponent} from '../modules/home/home.component';
 import { InfoHeaderComponent } from './widgets/info-header/info-header.component';
+import {ContactFormService} from './services/contact-form.service';
 
 
 
@@ -125,6 +126,6 @@ import { InfoHeaderComponent } from './widgets/info-header/info-header.component
     HomeComponent,
     InfoHeaderComponent
   ],
-  providers: [DashboardService, Covid19DataService, AuthService, WebRequestService, AuthGuard, DatePipe]
+  providers: [DashboardService, Covid19DataService, AuthService, WebRequestService, AuthGuard, DatePipe, ContactFormService]
 })
 export class SharedModule { }

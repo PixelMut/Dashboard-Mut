@@ -32,12 +32,12 @@
             About me
           </h1>
          <p>
-           A fond of web development since 6 years, I've done remote work for agencies as freelance, been a simple web developper, project manager and technical leader. In this particular order.
-           I'm quietly confident, naturally curious, and perpetually working on improving my skills one project at a time.
+           A fond of web development since 6 years, I've done remote work for agencies as freelance, been a web developper, project manager and technical leader, in this particular order.
+           I'm quietly confident, naturally curious, and perpetually working on improving my skills at each project.
          </p>
           <p>
-           I currently am working for my self. But you can see my previous work history on <a href="https://www.linkedin.com/in/uakgul/">Linkedin</a> Outside of work I have a calm life and a very energic cat.
-            I am also working on different Gaming project, as Arcade Machine creation and customization or Board Games. Currently I am accepting freelance work, so don't think twice and send me a mail.
+           I currently am working for my self. But you can see my previous work experience on <a href="https://www.linkedin.com/in/uakgul/">Linkedin</a> Outside of work I have a calm life and a very energic cat.
+            I am also working on different Gaming projects, as Arcade Machine and Board Games' creation & customization. Currently I am accepting freelance work, so don't think twice and send me a mail.
           </p>
           <a href="#">My Resume</a>
           <br>
@@ -68,7 +68,7 @@
           <p>I also code in HTML, CSS, JavaScript ES6, PHP and Python</p>
 
           <h3>Back End</h3>
-          <p>Back End development accordingly with Node.js. I've started 4 years ago with Express JS and now have understood and mestered many aspect of an REST API</p>
+          <p>Back End development accordingly with Node.js. I've started 4 years ago with Express JS and now have understood and mastered many aspect of an REST API</p>
           <p>I also code in JAVA, PHP and Python</p>
 
           <h3>Data Base Administration</h3>
@@ -232,17 +232,21 @@
                 <span class="icon is-small is-left">
                   <i class="fas fa-user"></i>
                 </span>
+
               </p>
             </div>
             <div class="field">
               <p class="control is-expanded has-icons-left has-icons-right">
                 <input class="input is-normal form-control" formControlName="email" type="email" placeholder="Email">
-                <span class="icon is-small is-left">
+                <span class="icon is-small is-left"  >
                 <i class="fas fa-envelope"></i>
               </span>
-                <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
-              </span>
+                <span class="icon is-small is-right" *ngIf="contactForm.get('email').valid && contactForm.get('email').touched">
+                  <i class="fas fa-check" style="color:green"></i>
+                </span>
+                <span class="icon is-small is-right" *ngIf="contactForm.get('email').invalid && contactForm.get('email').touched">
+                  <i class="fas fa-check" style="color:red"></i>
+                </span>
               </p>
             </div>
           </div>
@@ -259,7 +263,7 @@
                   <!--</a>-->
                 </p>
                 <p class="control is-expanded">
-                  <input class="input form-control" formControlName="phone" type="tel" placeholder="Your phone number">
+                  <input class="input form-control" formControlName="phone" type="number" placeholder="Your phone number">
                 </p>
               </div>
               <!--<p class="help">Do not enter the first zero</p>-->
