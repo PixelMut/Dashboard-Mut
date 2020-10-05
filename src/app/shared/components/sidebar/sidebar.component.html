@@ -4,13 +4,15 @@
       <h2>Umut Akgul</h2>
       <h4>akgul.umut91@gmail.com</h4>
     </div>
-    <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Umut Akgul">
+    <img src="../../../../assets/photo2.png" alt="Umut Akgul">
   </div>
 
   <mat-divider></mat-divider>
 
   <h2 matSubheader>Pages</h2>
 
+  <a mat-list-item routerLink="/" routerLinkActive="list-item-active">Home</a>
+  <br>
   <a mat-list-item routerLink="/dashboard" routerLinkActive="list-item-active">Dashboard</a>
   <a mat-list-item routerLink="/tictactoe" routerLinkActive="list-item-active">Tic Tac Toe</a>
   <a mat-list-item routerLink="/covid19" routerLinkActive="list-item-active">Covid-19 Trackr</a>
@@ -22,11 +24,11 @@
 
   <h2 matSubheader>Tools</h2>
 
-  <a mat-list-item routerLink="/contacts" routerLinkActive="list-item-active">
+  <a mat-list-item routerLink="/contacts" routerLinkActive="list-item-active" disabled >
     <mat-icon>import_contacts</mat-icon>
     Contacts
   </a>
-  <a mat-list-item routerLink="/contacts" routerLinkActive="list-item-active">
+  <a mat-list-item routerLink="/contacts" routerLinkActive="list-item-active" disabled>
     <mat-icon>contact_phone</mat-icon>
     Leads
   </a>
